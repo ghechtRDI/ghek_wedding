@@ -145,6 +145,20 @@ strong { font-weight: 500; }
   color: var(--moss);
 }
 
+.hero-photo {
+  display: block;
+  width: min(72vw, 340px);
+  height: auto;
+  aspect-ratio: 1;
+  margin: 2.5rem auto 0;
+  object-fit: cover;
+  object-position: 50% 35%;
+  border-radius: 50%;
+  border: 1px solid var(--stone);
+  padding: 8px;
+  background: var(--cream);
+}
+
 /* ==========================================================================
    Sections
    ========================================================================== */

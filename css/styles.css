@@ -1,0 +1,367 @@
+/* ==========================================================================
+   Palette — earthy, coastal Alaska
+   ========================================================================== */
+:root {
+  --cream:   #f5f1e8;  /* page background */
+  --sand:    #e8e0d0;  /* alternate section background */
+  --stone:   #c9bfae;  /* borders, rules */
+  --moss:    #6b7a5a;  /* accents */
+  --spruce:  #2f3e34;  /* headings */
+  --clay:    #a8674a;  /* links, highlights */
+  --bark:    #3d3630;  /* body text */
+
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans:  "Karla", system-ui, -apple-system, sans-serif;
+
+  --max-width: 960px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--bark);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: var(--spruce);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+h3 { font-size: 1.5rem; }
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--clay); text-underline-offset: 3px; }
+a:hover { color: var(--spruce); }
+
+strong { font-weight: 500; }
+
+/* ==========================================================================
+   Header / nav
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--cream) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--stone);
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-mark {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  color: var(--spruce);
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: clamp(0.75rem, 3vw, 2rem);
+}
+
+.nav-links a {
+  color: var(--bark);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover { color: var(--clay); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: clamp(4rem, 14vh, 9rem) var(--gutter) 3rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1.5rem;
+}
+
+.hero-names {
+  font-size: clamp(3rem, 11vw, 6.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.amp {
+  font-style: italic;
+  color: var(--clay);
+}
+
+.hero-date {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--spruce);
+  margin-bottom: 0.25rem;
+}
+
+.hero-place {
+  color: var(--moss);
+}
+
+.hero-mountains {
+  display: block;
+  width: min(100%, 520px);
+  margin: 3rem auto 0;
+  color: var(--moss);
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+.section {
+  padding: clamp(3.5rem, 10vw, 6rem) var(--gutter);
+}
+
+.section > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-alt { background: var(--sand); }
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  margin-bottom: 2.5rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: 1.25rem auto 0;
+  background: var(--clay);
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.cards + .cards,
+.steps + .cards { margin-top: 2.5rem; }
+
+.card {
+  padding: 2rem;
+  border: 1px solid var(--stone);
+  background: var(--cream);
+}
+
+.card-lead {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--clay);
+  margin-bottom: 0.5rem;
+}
+
+/* Travel steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.step-num {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--moss);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--moss);
+}
+
+/* Note */
+.note {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  border-left: 2px solid var(--moss);
+}
+
+.note h3 { font-size: 1.25rem; }
+
+/* Gifts */
+.gift-lead {
+  max-width: 560px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 3.5vw, 1.65rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--spruce);
+}
+
+.gift-table {
+  display: block;
+  width: min(100%, 300px);
+  margin: 2.5rem auto 3rem;
+  color: var(--moss);
+}
+
+.gift-fund {
+  max-width: 760px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(2rem, 6vw, 3.5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  border: 1px solid var(--stone);
+}
+
+.tiers {
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.tiers li {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--clay);
+}
+
+.tier-amount {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--clay);
+}
+
+.tier-label {
+  font-size: 0.9rem;
+  color: var(--bark);
+}
+
+.venmo {
+  margin: 0;
+  text-align: center;
+}
+
+.venmo img,
+.qr-placeholder {
+  display: block;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 0.75rem;
+}
+
+.qr-placeholder {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.25rem;
+  border: 1px dashed var(--moss);
+  background: var(--sand);
+  color: var(--moss);
+}
+
+.qr-placeholder svg { width: 72px; height: 72px; opacity: 0.6; }
+
+.qr-placeholder span {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.venmo figcaption {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--moss);
+}
+
+.venmo figcaption strong { color: var(--spruce); }
+
+/* Button */
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid var(--spruce);
+  color: var(--spruce);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+  background: var(--spruce);
+  color: var(--cream);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: 3rem var(--gutter);
+  border-top: 1px solid var(--stone);
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--moss);
+}
+
+/* ==========================================================================
+   Small screens
+   ========================================================================== */
+@media (max-width: 520px) {
+  .nav { flex-direction: column; gap: 0.25rem; }
+  .card { padding: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  .gift-fund { grid-template-columns: 1fr; }
+  .gift-text { text-align: center; }
+}
